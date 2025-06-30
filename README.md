@@ -2,11 +2,11 @@
 
 Python scripts and experiments used for my research paper on speech-to-text AI models. This repository includes model evaluations, accuracy benchmarks, and transcript quality comparisons using various open-source and cloud-based STT APIs.
 
-## Getting Started with Whisper
+## Setup and run Whisper
 
 Follow these steps to set up and run the Whisper transcription script:
 
-````markdown
+````
 > 💡 Tip: Place your audio file in the same directory and update `audio_path` in the script.
 ````
 
@@ -18,30 +18,78 @@ Make sure you have Python 3.10 installed on your machine.
 
 ### 2. Create a virtual environment
 
-```bash
+```
 python3.10 -m venv whisper-venv
 ```
 
 ### 3. Activate the virtual environment
 
-```bash
+```
 source whisper-venv/bin/activate
 ```
 
-### 4. Install Whisper
+### 4. Install dependencies
 
-```bash
+```
 pip install openai-whisper
 ```
 
 ### 5. Run the transcription script
 
-```bash
+```
 python3 stt-whisper-model.py
 ```
 
 ### 6. Deactivate the virtual environment
 
-```bash
+```
+deactivate
+```
+
+## Setup and run Vosk
+
+### 1. Download the English Vosk Model (lightweight)
+
+```
+wget https://alphacephei.com/vosk/models/vosk-model-small-en-us-0.15.zip
+unzip vosk-model-small-en-us-0.15.zip
+mv vosk-model-small-en-us-0.15 vosk-model
+```
+This downloads and extracts the model to a folder named vosk-model which the script expects.
+
+### 2. Create a virtual environment
+
+```
+python3.10 -m venv vosk-venv
+```
+
+### 3. Activate the virtual environment
+
+```
+source vosk-venv/bin/activate
+```
+
+### 4. Install dependencies
+
+```
+pip install vosk
+```
+
+### 5. Run the transcription script
+
+```
+python3 stt-vosk-model.py path/to/your/audio.wav
+```
+Replace `path/to/your/audio.wav` with the path to your WAV file (mono, 16kHz).
+
+### 6. Output files
+After running, two files will be generated in the script directory:
+
+`transcription.json` — full transcription plus word-level timestamps
+`transcription.txt` — full transcription as plain text
+
+### 7. Deactivate the virtual environment
+
+```
 deactivate
 ```
