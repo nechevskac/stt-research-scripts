@@ -6,10 +6,9 @@ Python scripts and experiments used for my research paper on speech-to-text AI m
 
 Follow these steps to set up and run the Whisper transcription script:
 
-You can also optionally add:
-
 ````markdown
 > 💡 Tip: Place your audio file in the same directory and update `audio_path` in the script.
+````
 
 ### 1. Use Python 3.10
 
@@ -22,7 +21,6 @@ Make sure you have Python 3.10 installed on your machine.
 ```bash
 python3.10 -m venv whisper-venv
 ```
-````
 
 ### 3. Activate the virtual environment
 
